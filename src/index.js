@@ -4,7 +4,7 @@ let app = express();
 app.use(bodyParser());
 const mongoose = require("mongoose");
 
-const url = "mongodb://localhost:27017/Edyoda";
+const url = "mongodb+srv://karthik:karthik@cluster0.grsew.mongodb.net/Edyoda?retryWrites=true&w=majority";
 mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -191,7 +191,6 @@ app.delete("/deleteVideo/:_id", (req, res) => {
 //FIND ALL VIDEOS
 app.get("/findAllVideos", (req, res) => {
   const docs = VideoCollection.find().toArray(function(err, data) {
-    console.log(data);
     res.send(data);
   });
 });
@@ -276,7 +275,6 @@ app.delete("/deleteEducator/:_id", (req, res) => {
 //FIND ALL EDUCATORS
 app.get("/findAllEducators", (req, res) => {
   const docs = EducatorCollection.find().toArray(function(err, data) {
-    console.log(data);
     res.send(data);
   });
 });
